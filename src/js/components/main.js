@@ -26,13 +26,15 @@ class Main extends Component {
             <Header/>
           </header>
 
-          <Switch>
-            <Route exact path='/' component={Home}/>
-            <Route path='/portfolio' component={Portfolio}/>
-            <Route path='/resume' component={Resume}/>
-            <Route path='/contact' component={Contact}/>
-            <Redirect to="/"/>
-          </Switch>
+          <div className="App-body">
+            <Switch>
+              <Route exact path='/' component={Home}/>
+              <Route path='/portfolio' component={Portfolio}/>
+              <Route path='/resume' component={Resume}/>
+              <Route path='/contact' component={Contact}/>
+              <Redirect to="/"/>
+            </Switch>
+          </div>
 
           <footer className="App-footer">
             <Footer/>
