@@ -8,10 +8,9 @@ import Header from './headerfooter/header';
 import Footer from './headerfooter/footer';
 
 import Home from './home/main';
-import Portfolio from './portfolio/main';
-import Resume from './resume/main';
+import About from './about/main';
+import Blog from './blog/main';
 import Contact from './contact/main';
-
 
 class Main extends Component {
   constructor() {
@@ -29,9 +28,9 @@ class Main extends Component {
           <div className="App-body">
             <Switch>
               <Route exact path='/' component={Home}/>
-              <Route path='/portfolio' component={Portfolio}/>
-              <Route path='/resume' component={Resume}/>
+              <Route path='/about' component={About}/>
               <Route path='/contact' component={Contact}/>
+              <Route path='/blog' component={Blog}/>
               <Redirect to="/"/>
             </Switch>
           </div>

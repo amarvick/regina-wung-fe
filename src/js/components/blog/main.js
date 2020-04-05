@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Portfolio() {
+function Blog() {
   return (
     <div className="App">
     </div>
   );
 }
 
-export default Portfolio;
+export default Blog;
