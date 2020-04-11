@@ -17,7 +17,6 @@ function Contact() {
           <Label for="exampleText">Message *</Label>
           <Input type="textarea" name="message" id="message" rows={10} />
         </FormGroup>
-        <Button>Submit</Button>
       </Form>
     </Container>
   );

@@ -4,13 +4,11 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import './main.scss'
 // import store from "./js/store"
 
-import Header from './headerfooter/header';
-import Footer from './headerfooter/footer';
+import Header from './headerfooter/Header';
+import Footer from './headerfooter/Footer';
 
-import Home from './home/main';
-import About from './about/main';
-import Blog from './blog/main';
-import Contact from './contact/main';
+import Home from './home/Home';
+import Blog from './blog/Blog';
 
 class Main extends Component {
   constructor() {
@@ -28,8 +26,6 @@ class Main extends Component {
           <div className="App-body">
             <Switch>
               <Route exact path='/' component={Home}/>
-              <Route path='/about' component={About}/>
-              <Route path='/contact' component={Contact}/>
               <Route path='/blog' component={Blog}/>
               <Redirect to="/"/>
             </Switch>

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './header.scss';
+import './Header.scss';
 
 function Header() {   
   const parallaxStyling = {
     backgroundImage: `url('${require('../../../images/ReginaBooks.jpeg')}')`,
     height: '600px',
+    opacity: '0.5',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -15,9 +16,9 @@ function Header() {
   };
 
   return (
-    <div>
+    <div style={{backgroundColor: '#1aa6dd'}}>
       <div style={parallaxStyling}/>
-      <Container className="header">
+      {/* <Container className="header">
         <Col sm="12" md={{ size: 6, offset: 3 }}>
           <Row>
             <Col>    
@@ -42,7 +43,7 @@ function Header() {
             </Col>
           </Row>
         </Col>
-      </Container>
+      </Container> */}
     </div>
   );
 }
