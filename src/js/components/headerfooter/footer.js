@@ -5,27 +5,25 @@ import { Container, Row, Col } from 'reactstrap';
 function Footer() {
   return (
     <Container className="footer">
+      <Row>
         <Col>
-            <Row>
-                <i className="fa fa-phone"></i>
-                <p>(206) 290 1719</p>
-            </Row>
-            <Row>
-                <i className="fa fa-envelope"></i>
-                <p>reginawung@gmail.com</p>
-            </Row>
-            <Row>
-                <i className="fa fa-location-arrow"></i>
-                <p>Seattle, WA</p>
-            </Row>
+          <img src={require('../../../images/Facebook.jpeg')}/>
+          <p>facebook.com/regina.wung</p>
         </Col>
-        {/* <Col>
-            <Row>
-                <Col>Facebook</Col>
-                <Col>Instagram</Col>
-                <Col>Linkedin</Col>
-            </Row>
-        </Col> */}
+        <Col>
+          <img src={require('../../../images/Linkedin.jpeg')}/>
+          <p>linkedin.com/in/reginawung</p>
+        </Col>
+        <Col>
+          <img src={require('../../../images/Location.jpeg')}/>
+          <p>Seattle, WA</p>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <p>Regina Wung, {new Date().getFullYear()}</p>
+        </Col>
+      </Row>
     </Container>
   );
 }

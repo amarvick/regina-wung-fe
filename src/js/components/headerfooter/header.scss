@@ -1,3 +1,11 @@
-.header {
+#header {
   text-align: center;
+
+  #header-name {
+    color: white;
+    position: sticky;
+    vertical-align: center;
+    line-height: 600px;
+    opacity: 1 !important;
+  }
 }

@@ -13,7 +13,7 @@ class PortfolioContainer extends React.Component {
           style={{
             border: '1px solid white',
             borderRadius: '5px',
-            height: '600px',
+            height: '500px',
             width: '400px',
             padding: '25px',
             margin: '25px',
@@ -28,8 +28,8 @@ class PortfolioContainer extends React.Component {
               width: '100%',
             }}
           />
-          <div>
-            <h1>{this.props.data.title}</h1>
+          <div className="portfolio-piece-text">
+            <h3>{this.props.data.title}</h3>
             <p>{this.props.data.description}</p>
           </div>
         </div>

@@ -1,6 +1,4 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import './Header.scss';
 
 function Header() {   
@@ -16,34 +14,10 @@ function Header() {
   };
 
   return (
-    <div style={{backgroundColor: '#1aa6dd'}}>
-      <div style={parallaxStyling}/>
-      {/* <Container className="header">
-        <Col sm="12" md={{ size: 6, offset: 3 }}>
-          <Row>
-            <Col>    
-              <Link to='/'>
-                Home
-              </Link>
-            </Col>
-            <Col>
-              <Link to='/about'>
-                About
-              </Link>
-            </Col>
-            <Col>
-              <Link to='/contact'>
-                Contact
-              </Link>
-            </Col>
-            <Col>
-              <Link to='/blog'>
-                Blog
-              </Link>
-            </Col>
-          </Row>
-        </Col>
-      </Container> */}
+    <div id="header" style={{backgroundColor: '#344A53'}}>
+      <div style={parallaxStyling}>
+        <h1 id="header-name">Regina Wung</h1>
+      </div>
     </div>
   );
 }
