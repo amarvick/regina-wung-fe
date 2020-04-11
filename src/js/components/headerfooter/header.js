@@ -4,7 +4,7 @@ import './Header.scss';
 function Header() {   
   const parallaxStyling = {
     backgroundImage: `url('${require('../../../images/ReginaBooks.jpeg')}')`,
-    height: '600px',
+    height: '800px',
     opacity: '0.5',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
