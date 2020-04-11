@@ -7,15 +7,15 @@ function Footer() {
     <Container className="footer">
       <Row>
         <Col>
-          <img src={require('../../../images/Facebook.jpeg')}/>
+          <img src={require('../../../images/Facebook.jpeg')} />
           <p>facebook.com/regina.wung</p>
         </Col>
         <Col>
-          <img src={require('../../../images/Linkedin.jpeg')}/>
+          <img src={require('../../../images/Linkedin.jpeg')} />
           <p>linkedin.com/in/reginawung</p>
         </Col>
         <Col>
-          <img src={require('../../../images/Location.jpeg')}/>
+          <img src={require('../../../images/Location.jpeg')} />
           <p>Seattle, WA</p>
         </Col>
       </Row>
