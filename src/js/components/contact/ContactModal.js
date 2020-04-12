@@ -3,6 +3,10 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Contact from './Contact';
 
 class ContactModal extends React.Component {
+  sendMessage() {
+    // axios - nodemailer...
+  }
+
   render() {
     return (
       <Modal 
@@ -15,7 +19,7 @@ class ContactModal extends React.Component {
           <Contact />
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={this.props.toggleModal}>Send</Button>{' '}
+          <Button color="primary" onClick={() => this.sendMessage()}>Send</Button>{' '}
           <Button color="secondary" onClick={this.props.toggleModal}>Cancel</Button>
         </ModalFooter>
       </Modal>
