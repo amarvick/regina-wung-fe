@@ -1,5 +1,8 @@
-import React, { Component, StartupActions } from 'react';
+import React from 'react';
+import Moment from 'react-moment';
 import './PortfolioContainer.scss';
+
+Moment.globalFormat = 'MMM DD, YYYY';
 
 class PortfolioContainer extends React.Component {
   constructor(props) {
@@ -30,6 +33,7 @@ class PortfolioContainer extends React.Component {
           />
           <div className="portfolio-piece-text">
             <h3>{this.props.data.title}</h3>
+            <Moment>{this.props.data.date}</Moment>
             <p>{this.props.data.description}</p>
           </div>
         </div>

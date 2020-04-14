@@ -1,5 +1,4 @@
-import React, { Component, StartupActions } from 'react';
-import { Button, Container, Row, Col } from 'reactstrap';
+import React from 'react';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import PortfolioContainer from './PortfolioContainer';
 import About from '../about/About';

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button, Container, Row, Col } from 'reactstrap';
+import { Button, Row, Col } from 'reactstrap';
 import './About.scss';
 
 class About extends React.Component {
   render() {
     return (
-      <Container className="body">
+      <div className="body">
         <Row>
           <Col>
             <img 
@@ -42,7 +42,7 @@ class About extends React.Component {
             </Row>
           </Col>
         </Row>
-      </Container>
+      </div>
     );
   }
 }
