@@ -3,8 +3,33 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Contact from './Contact';
 
 class ContactModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      name: '',
+      email: '', 
+      message: '',
+    };
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
   sendMessage() {
-    // axios - nodemailer...
+    const messageInfo = this.state;
+    fetch(`http://localhost:9000/email?name=${messageInfo.name}&email=${messageInfo.email}&message=${messageInfo.message}`, {
+      method: 'POST'
+    })
+      .then(res => {
+        alert('message sent!');
+        this.props.toggleModal();
+      })
+      .catch(error => {
+        alert(error);
+      });
   }
 
   render() {
@@ -16,7 +41,9 @@ class ContactModal extends React.Component {
         size='lg'>
         <ModalHeader toggle={this.props.toggleModal}>Contact</ModalHeader>
         <ModalBody>
-          <Contact />
+          <Contact 
+            handleChange={(e) => this.handleChange(e)}
+          />
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={() => this.sendMessage()}>Send</Button>{' '}

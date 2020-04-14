@@ -1,40 +1,32 @@
 import React from 'react';
 import './Footer.scss';
 import { Container, Row, Col } from 'reactstrap';
+import FooterLink from './FooterLink.js'
 
 function Footer() {
   return (
     <Container className="footer">
-      <Row>
+      <div className="footer-contents">
         <Col>
-          <a href="https://www.facebook.com/regina.wung">
-            <img 
-              className="social-media" 
-              src={require('../../../images/Facebook.jpg')}
+          <Row>
+            <FooterLink 
+              link='https://www.facebook.com/regina.wung'
+              imageLink={require('../../../images/Facebook.jpg')}
             />
-          </a>
-        </Col>
-        <Col>
-          <a href="https://www.linkedin.com/in/reginawung">
-            <img 
-              className="social-media" 
-              src={require('../../../images/Linkedin.jpg')} 
+            <FooterLink 
+              link='https://www.linkedin.com/in/reginawung'
+              imageLink={require('../../../images/Linkedin.jpg')}
             />
-          </a>
+            <FooterLink 
+              link='https://www.instagram.com/reginawung'
+              imageLink={require('../../../images/Instagram.jpg')}
+            />
+          </Row>
+          <Row>
+            <p>Regina Wung, {new Date().getFullYear()}</p>
+          </Row>
         </Col>
-        <Col>
-          <img 
-            className="social-media" 
-            src={require('../../../images/Location.jpg')} 
-          />
-          <p>Seattle, WA</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <p>Regina Wung, {new Date().getFullYear()}</p>
-        </Col>
-      </Row>
+      </div>
     </Container>
   );
 }

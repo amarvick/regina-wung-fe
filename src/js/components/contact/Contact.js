@@ -2,21 +2,6 @@ import React from 'react';
 import { Button, Form, FormFeedback, FormGroup, Label, Input, Container } from 'reactstrap';
 
 class Contact extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      name: '',
-      email: '', 
-      message: '',
-    };
-  }
-
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-
   render() {
     return (
       <Container>
@@ -27,7 +12,7 @@ class Contact extends React.Component {
               type="text" 
               name="name"
               placeholder="Name" 
-              onChange={e => this.handleChange(e)} 
+              onChange={e => this.props.handleChange(e)} 
               required 
             />
             <FormFeedback>I'd like to know who this is :)</FormFeedback>
@@ -38,7 +23,7 @@ class Contact extends React.Component {
               type="email" 
               name="email"
               placeholder="Email" 
-              onChange={e => this.handleChange(e)} 
+              onChange={e => this.props.handleChange(e)} 
               required 
             />
             <FormFeedback>I'd like to know how to reach back out to you :)</FormFeedback>
@@ -49,7 +34,7 @@ class Contact extends React.Component {
               type="textarea" 
               name="message"
               rows={10} 
-              onChange={e => this.handleChange(e)} 
+              onChange={e => this.props.handleChange(e)} 
               required 
             />
             <FormFeedback>I'd like to know what you have to say :)</FormFeedback>

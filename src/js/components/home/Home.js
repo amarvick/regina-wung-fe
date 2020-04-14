@@ -1,6 +1,6 @@
 import React, { Component, StartupActions } from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
 import { Button, Container, Row, Col } from 'reactstrap';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
 import PortfolioContainer from './PortfolioContainer';
 import About from '../about/About';
 import ContactModal from '../contact/ContactModal';
@@ -11,8 +11,7 @@ class Home extends React.Component {
     super(props);
     this.state = { 
       portfolioProjects: [],
-      displayContactModal: false, 
-      projectsToShow: 3,
+      displayContactModal: false,
     };
   }
 
@@ -34,12 +33,12 @@ class Home extends React.Component {
     this.getPortfolioProjects();
   }
 
-  // To emulate infinite scrolling behavior
-  displayMoreProjects(imagesToShow) {
-    console.log('displaying more');
-    this.setState(prevState => ({
-      projectsToShow: prevState.projectsToShow + imagesToShow
-    }));
+  genArrow = (direction) => {
+    return(
+      <div className="circle-container">
+        <img className={`arrow arrow-${direction}`} src={require(`../../../images/arrow-${direction}.png`)} />
+      </div>
+    )
   }
 
   render() {
@@ -47,22 +46,15 @@ class Home extends React.Component {
     return (
       <div className="App">
         <div id="portfolio">
-          {state.portfolioProjects.slice(0, state.projectsToShow).map(portfolio => {
-            return (
-              <PortfolioContainer data={portfolio}/>
-            )
-          })}
-          <Button 
-            id="show-more-projects"
-            color="primary"
-            style={{
-              display: state.projectsToShow < state.portfolioProjects.length 
-                ? 'block' 
-                : 'none'
-            }} 
-            onClick={() => this.displayMoreProjects(3)}>
-              See More
-          </Button>
+          <ScrollMenu
+            data={state.portfolioProjects.map(portfolio => {
+              return (
+                <PortfolioContainer data={portfolio}/>
+              )
+            })}
+            arrowLeft={this.genArrow('left')}
+            arrowRight={this.genArrow('right')}
+          />
         </div>
 
         <About toggleModal={() => this.toggleModal()}/>
