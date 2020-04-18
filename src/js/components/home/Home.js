@@ -7,8 +7,8 @@ import './Home.scss';
 import 'react-multi-carousel/lib/styles.css';
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = { 
       portfolioProjects: [],
       displayContactModal: false,
@@ -33,20 +33,10 @@ class Home extends React.Component {
     this.getPortfolioProjects();
   }
 
-  genArrow = (direction) => {
-    return(
-      <div className="circle-container">
-        <img className={`arrow arrow-${direction}`} src={require(`../../../images/arrow-${direction}.png`)} />
-      </div>
-    )
-  }
-
   render() {
-    const state = this.state;
     const responsive = {
       superLargeDesktop: {
-        // the naming can be any, depends on you.
-        breakpoint: { max: 4000, min: 3000 },
+        breakpoint: { max: 10000, min: 3000 },
         items: 5
       },
       desktop: {
@@ -69,16 +59,11 @@ class Home extends React.Component {
             responsive={responsive}
             autoPlay={false}
             removeArrowOnDeviceType={["tablet", "mobile"]}
-            customLeftArrow={this.genArrow('left')}
-            customRightArrow={this.genArrow('right')}
-            keyBoardControl={true}
-            customTransition="all .5"
             transitionDuration={500}
             containerClass="carousel-container"
-            dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
           >
-            {state.portfolioProjects.map(portfolio => {
+            {this.state.portfolioProjects.map(portfolio => {
               return (
                 <PortfolioContainer data={portfolio}/>
               )

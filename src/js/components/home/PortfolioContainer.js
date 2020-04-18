@@ -35,7 +35,9 @@ class PortfolioContainer extends React.Component {
             <div className="portfolio-title">
               <h3>{this.props.data.title}</h3>
             </div>
-            <Moment>{this.props.data.date}</Moment>
+            <div className="portfolio-date-publication">
+              <Moment>{this.props.data.date}</Moment> • {this.props.data.publication}
+            </div>
             <div className="portfolio-description">
               <p>{this.props.data.description}</p>
             </div>
