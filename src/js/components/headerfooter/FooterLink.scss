@@ -1,10 +1,19 @@
+@mixin boxShadow($opacity) {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, $opacity), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .footer-link {
   margin: 0 10px;
 
   .social-media {
+    @include boxShadow(0.2);
     border-radius: 100%;
     height: 30px;
     width: 30px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.3s;
+
+    &:hover {
+      @include boxShadow(0.6);
+    }
   }
 }

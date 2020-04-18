@@ -3,7 +3,6 @@ import PortfolioContainer from './PortfolioContainer';
 import About from '../about/About';
 import ContactModal from '../contact/ContactModal';
 import Carousel from 'react-multi-carousel';
-import './Home.scss';
 import 'react-multi-carousel/lib/styles.css';
 
 class Home extends React.Component {
