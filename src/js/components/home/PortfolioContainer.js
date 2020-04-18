@@ -2,7 +2,7 @@ import React from 'react';
 import Moment from 'react-moment';
 import './PortfolioContainer.scss';
 
-Moment.globalFormat = 'MMM DD, YYYY';
+Moment.globalFormat = 'MMM D, YYYY';
 
 class PortfolioContainer extends React.Component {
   constructor(props) {
@@ -25,16 +25,20 @@ class PortfolioContainer extends React.Component {
             boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
           }}>
           <img 
-            src={this.props.data.image}
+            src={require(`../../../images/portfolio_images/${this.props.data.image}`)}
             style={{
               height: '250px',
               width: '100%',
             }}
           />
           <div className="portfolio-piece-text">
-            <h3>{this.props.data.title}</h3>
+            <div className="portfolio-title">
+              <h3>{this.props.data.title}</h3>
+            </div>
             <Moment>{this.props.data.date}</Moment>
-            <p>{this.props.data.description}</p>
+            <div className="portfolio-description">
+              <p>{this.props.data.description}</p>
+            </div>
           </div>
         </div>
       </a>

@@ -2,4 +2,23 @@
   color: #344A53;
   padding: 15px;
   overflow: ellipsis;
+  padding-bottom: 40px;
+
+  .portfolio-title {
+    max-height: 66px;
+    overflow-y: hidden;
+    position: relative;
+  }
+
+  .portfolio-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    p {
+      margin: 0;
+    }
+  }
 }

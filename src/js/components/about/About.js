@@ -15,7 +15,7 @@ class About extends React.Component {
           </Col>
           <Col>
             <Row>
-              <h1 id="header-content">About Me</h1>
+              <h1 id="header-content">ABOUT</h1>
             </Row>
             <Row>
               <p class="about-content">
