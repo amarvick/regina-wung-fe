@@ -6,27 +6,49 @@
   text-overflow: ellipsis;
 }
 
-.portfolio-piece-text {
-  color: #344A53;
-  padding: 15px;
+@mixin boxShadow($opacity) {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, $opacity), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
-  .portfolio-title {
-    @include webkit(2);
-    max-height: 72px;
-    position: relative;
-  }
+.portfolio-piece {
+  @include boxShadow(0.2);
+  border: 1px solid white;
+  border-radius: 5px;
+  height: 500px;
+  width: 400px;
+  padding: 25px;
+  margin: 25px;
+  display: inline-block;
+  overflow: hidden;
+  transition: 0.3s;
 
-  .portfolio-date-publication {
-    @include webkit(4);
-    max-height: 22px;
-    font-size: 12px;
-    font-weight: 900;
-  }
+  .portfolio-piece-text {
+    color: #344A53;
+    padding: 15px;
 
-  .portfolio-description {
-    @include webkit(4);
-    p {
-      margin: 0;
+    .portfolio-title {
+      @include webkit(2);
+      max-height: 72px;
+      position: relative;
+    }
+
+    .portfolio-date-publication {
+      @include webkit(4);
+      max-height: 22px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .portfolio-description {
+      @include webkit(4);
+      p {
+        margin: 0;
+      }
     }
   }
+}
+
+.portfolio-piece:hover {
+  @include boxShadow(0.6);
+  text-decoration: none;
 }
