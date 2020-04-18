@@ -1,35 +1,30 @@
+@mixin webkit($lineClamp) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lineClamp;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .portfolio-piece-text {
   color: #344A53;
   padding: 15px;
-  overflow: ellipsis;
-  padding-bottom: 40px;
 
   .portfolio-title {
+    @include webkit(2);
     max-height: 72px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
     position: relative;
   }
 
   .portfolio-date-publication {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    position: relative;
+    @include webkit(4);
+    max-height: 22px;
     font-size: 12px;
     font-weight: 900;
   }
 
   .portfolio-description {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
+    @include webkit(4);
     p {
       margin: 0;
     }
