@@ -1,78 +1,64 @@
 import React from 'react';
-import PortfolioContainer from './PortfolioContainer';
+import Articles from '../articles/Articles';
 import About from '../about/About';
 import ContactModal from '../contact/ContactModal';
-import Carousel from 'react-multi-carousel';
+import ContactRequestBox from '../contact/ContactRequestBox';
 import 'react-multi-carousel/lib/styles.css';
+import './Home.scss';
 
 class Home extends React.Component {
   constructor() {
     super();
     this.state = { 
-      portfolioProjects: [],
       displayContactModal: false,
+      displayContactRequestBox: false,
+      contactRequestError: null,
+      isFetching: false,
     };
   }
 
-  toggleModal() {
+  setFetching(isFetching) {
+    this.setState({
+      isFetching: isFetching,
+    })
+  }
+
+  setError(error) {
+    this.setState({
+      contactRequestError: error,
+    })
+  }
+
+  toggleContactRequestBox() {
+    this.setState(prevState => ({
+      displayContactRequestBox: !prevState.displayContactRequestBox,
+    }));
+  }
+
+  toggleContactModal() {
     this.setState(prevState => ({
       displayContactModal: !prevState.displayContactModal
     }));
   }
 
-  getPortfolioProjects() {
-    fetch("http://localhost:9000/portfolio")
-      .then(res => res.text())
-      .then(res => this.setState({ 
-        portfolioProjects: JSON.parse(res) 
-      }));
-  }
-  
-  componentWillMount() {
-    this.getPortfolioProjects();
-  }
-
   render() {
-    const responsive = {
-      superLargeDesktop: {
-        breakpoint: { max: 10000, min: 3000 },
-        items: 5
-      },
-      desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 3
-      },
-      tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 2
-      },
-      mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 1
-      }
-    };
     return (
-      <div className="App">
-        <div id="portfolio">
-          <Carousel 
-            responsive={responsive}
-            autoPlay={false}
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            transitionDuration={500}
-            containerClass="carousel-container"
-            itemClass="carousel-item-padding-40-px"
-          >
-            {this.state.portfolioProjects.map(portfolio => {
-              return (
-                <PortfolioContainer data={portfolio}/>
-              )
-            })}
-          </Carousel>
-        </div>
-        <About toggleModal={() => this.toggleModal()}/>
+      <div className="home">
+        <Articles />
+        <About toggleModal={() => this.toggleContactModal()}/>
         <ContactModal 
           display={this.state.displayContactModal} 
-          toggleModal={() => this.toggleModal()}
+          setFetching={(isFetching) => this.setFetching(isFetching)}
+          setError={(error) => this.setError(error)}
+          toggleContactModal={() => this.toggleContactModal()}
+          toggleContactRequestBox={() => this.toggleContactRequestBox()}
+        />
+        <ContactRequestBox 
+          display={this.state.displayContactRequestBox}
+          contactRequestError={this.state.contactRequestError}
+          isFetching={this.state.isFetching}
+          setError={(error) => this.setError(error)}
+          toggleContactRequestBox={() => this.toggleContactRequestBox()}
         />
       </div>
     );

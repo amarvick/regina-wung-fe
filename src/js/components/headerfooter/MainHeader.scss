@@ -1,0 +1,38 @@
+#header {
+  height: 100%;
+  background-color: #344A53;
+
+  #parallax {
+    background-image: url('../../../images/ReginaBooks.jpeg');
+    width: auto;
+    height: 600px;
+    opacity: 0.5;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+  }
+  #header-name {
+    position: absolute;
+    left: 0;
+    top: 580px;
+    width: 100%;
+    text-align: center;
+
+    .border {
+      background-color: #344A53;
+      border: 1px solid #98AFBA;
+      border-radius: 10px;
+      color: #98AFBA;
+      padding: 18px;
+      font-size: 25px;
+      letter-spacing: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 815px) {
+  #parallax {
+    background-position: center;
+  }
+}

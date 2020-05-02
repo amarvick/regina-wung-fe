@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
+import Button from '../utils/Button';
 import './About.scss';
 
 class About extends React.Component {
@@ -7,18 +8,19 @@ class About extends React.Component {
     return (
       <div className="body">
         <Row>
-          <Col>
+          <Col md="12" lg="5">
             <img 
-              className="regina-image" 
+              className="regina-image"
+              alt="Happy Regina"
               src={require('../../../images/Regina.jpeg')} 
             />
           </Col>
-          <Col>
+          <Col lg="7"> 
             <Row>
               <h1 id="header-content">ABOUT</h1>
             </Row>
             <Row>
-              <p class="about-content">
+              <p className="about-content">
                 Regina is an avid storyteller who loves to write about 
                 her personal experiences. A communications professional 
                 by day, she enjoys scrapbooking, practicing aerial yoga, 
@@ -29,16 +31,13 @@ class About extends React.Component {
               </p>
             </Row>
             <Row>
-              <p class="about-content">Want to get in touch?</p>
+              <p className="about-content">Want to get in touch?</p>
             </Row>
             <Row>
               <Button 
-                color="primary" 
                 onClick={this.props.toggleModal} 
-                class="about-content"
-              >
-                Contact Me
-              </Button>
+                label="Contact Me"
+              />
             </Row>
           </Col>
         </Row>

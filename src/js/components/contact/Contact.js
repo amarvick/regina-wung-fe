@@ -1,7 +1,59 @@
 import React from 'react';
-import { Button, Form, FormFeedback, FormGroup, Label, Input, Container } from 'reactstrap';
+import { Form, FormFeedback, FormGroup, Label, Input, Container } from 'reactstrap';
+import Button from '../utils/Button';
 
 class Contact extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      missingName: false,
+      missingEmail: false, 
+      missingSubject: false,
+      missingMessage: false,
+    };
+  }
+
+  validateMessage(e) {
+    let error = false;
+    this.setState({
+      missingName: false,
+      missingEmail: false,
+      missingSubject: false,
+      missingMessage: false,
+    });
+
+    if (this.props.data.name === '') {
+      error = true;
+      this.setState({
+        missingName: true,
+      })
+    }
+    if (this.props.data.email === '') {
+      error = true;
+      this.setState({
+        missingEmail: true,
+      })
+    }
+    if (this.props.data.subject === '') {
+      error = true;
+      this.setState({
+        missingSubject: true,
+      })
+    }
+    if (this.props.data.message === '') {
+      error = true;
+      this.setState({
+        missingMessage: true,
+      })
+    }
+
+    if (error) {
+      return;
+    } else {
+      this.props.sendMessage(e);
+    }
+  }
+
   render() {
     return (
       <Container>
@@ -13,6 +65,7 @@ class Contact extends React.Component {
               name="name"
               placeholder="Name" 
               onChange={e => this.props.handleChange(e)} 
+              invalid={this.state.missingName}
               required 
             />
             <FormFeedback>I'd like to know who this is :)</FormFeedback>
@@ -24,9 +77,22 @@ class Contact extends React.Component {
               name="email"
               placeholder="Email" 
               onChange={e => this.props.handleChange(e)} 
+              invalid={this.state.missingEmail}
               required 
             />
             <FormFeedback>I'd like to know how to reach back out to you :)</FormFeedback>
+          </FormGroup>
+          <FormGroup>
+            <Label for="subject">Subject *</Label>
+            <Input 
+              type="text" 
+              name="subject"
+              placeholder="Subject" 
+              onChange={e => this.props.handleChange(e)} 
+              invalid={this.state.missingSubject}
+              required 
+            />
+            <FormFeedback>I'd like to have an idea as to what this is about :)</FormFeedback>
           </FormGroup>
           <FormGroup>
             <Label for="exampleText">Message *</Label>
@@ -35,10 +101,15 @@ class Contact extends React.Component {
               name="message"
               rows={10} 
               onChange={e => this.props.handleChange(e)} 
+              invalid={this.state.missingMessage}
               required 
             />
             <FormFeedback>I'd like to know what you have to say :)</FormFeedback>
           </FormGroup>
+          <Button 
+            onClick={(e) => this.validateMessage(e)}
+            label="Send"
+          />
         </Form>
       </Container>
     );

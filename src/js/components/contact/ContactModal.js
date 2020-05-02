@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import Contact from './Contact';
 
 class ContactModal extends React.Component {
@@ -8,6 +8,7 @@ class ContactModal extends React.Component {
     this.state = { 
       name: '',
       email: '', 
+      subject: '',
       message: '',
     };
   }
@@ -18,17 +19,26 @@ class ContactModal extends React.Component {
     });
   }
 
-  sendMessage() {
+  sendMessage(e) {
+    e.preventDefault();
+    this.props.setFetching(true);
+    this.props.toggleContactRequestBox();
+
     const messageInfo = this.state;
-    fetch(`http://localhost:9000/email?name=${messageInfo.name}&email=${messageInfo.email}&message=${messageInfo.message}`, {
+    fetch('http://localhost:9000/email' +
+            `?name=${messageInfo.name}` +
+            `&email=${messageInfo.email}` +
+            `&subject=${messageInfo.subject}` +
+            `&message=${messageInfo.message}`, {
       method: 'POST'
     })
-      .then(res => {
-        alert('message sent!');
-        this.props.toggleModal();
+      .then(_res => {
+        this.props.toggleContactModal();
+        this.props.setFetching(false);
       })
       .catch(error => {
-        alert(error);
+        this.props.setFetching(false);
+        this.props.setError(error);
       });
   }
 
@@ -36,19 +46,17 @@ class ContactModal extends React.Component {
     return (
       <Modal 
         isOpen={this.props.display} 
-        toggle={this.props.toggleModal} 
-        className='contact-modal'
-        size='lg'>
-        <ModalHeader toggle={this.props.toggleModal}>Contact</ModalHeader>
+        toggle={this.props.toggleContactModal}
+        size='lg'
+      >
+        <ModalHeader toggle={this.props.toggleContactModal}>Email me!</ModalHeader>
         <ModalBody>
           <Contact 
             handleChange={(e) => this.handleChange(e)}
+            sendMessage={(e) => this.sendMessage(e)}
+            data={this.state}
           />
         </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={() => this.sendMessage()}>Send</Button>{' '}
-          <Button color="secondary" onClick={this.props.toggleModal}>Cancel</Button>
-        </ModalFooter>
       </Modal>
     );
   }

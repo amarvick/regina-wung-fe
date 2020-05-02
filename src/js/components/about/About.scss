@@ -1,13 +1,16 @@
 .body {
-  padding: 55px 35px; // AM - work on this, might depend on screen size
+  padding: 55px 35px;
   background-color: lightblue;
-  
   width: 100vw;
+  height: 100%;
+  margin: 0px auto;
   position: relative;
+  text-align: center;
+  
   .regina-image {
     border-radius: 50%;
-    width: 400px;
-    height: 400px;
+    max-width: 80%;
+    min-width: 400px;
   }
 
   #header-content {
@@ -16,5 +19,6 @@
 
   .about-content {
     padding-top: 25px;
+    text-align: left;
   }
 }

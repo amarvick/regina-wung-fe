@@ -1,0 +1,21 @@
+.blog-post-container {
+  .blog-post-text {
+    #blog-post-title {
+      font-size: 44px;
+    }
+    #blog-post-info {
+      font-size: 18px;
+    }
+    #blog-post-content {
+      font-size: 20px;
+    }
+  }
+  .blog-options {
+    #previous-article {
+      float: left;
+    }
+    #next-article {
+      float: right;
+    }
+  }
+}

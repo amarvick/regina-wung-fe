@@ -1,43 +1,55 @@
 import React, { Component, StartupActions } from 'react'
-// import { connect } from 'react-redux' 
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import './main.scss'
-// import store from "./js/store"
+import { connect } from 'react-redux';
+import { getArticles } from '../actions/articleActions';
+import { getBlogPosts } from '../actions/blogActions';
+import { getComments } from '../actions/commentActions';
 
-import Header from './headerfooter/Header';
+import MainHeader from './headerfooter/MainHeader';
+import NonMainHeader from './headerfooter/NonMainHeader';
 import Footer from './headerfooter/Footer';
 
 import Home from './home/Home';
 import Blog from './blog/Blog';
 
 class Main extends Component {
-  constructor() {
-    super()
+  componentWillMount() {
+    getArticles();
+    getBlogPosts();
+    getComments();
   }
 
   render() {
+    const header = true ? <MainHeader /> : <NonMainHeader />
     return (
       <BrowserRouter>
         <div className="App">
-          <header className="App-header">
-            <Header/>
-          </header>
-
+          { header }
           <div className="App-body">
             <Switch>
               <Route exact path='/' component={Home}/>
-              <Route path='/blog' component={Blog}/>
+              <Route path='/blog/:id?' component={Blog}/>
               <Redirect to="/"/>
             </Switch>
           </div>
-
-          <footer className="App-footer">
-            <Footer/>
-          </footer>
+          <Footer />
         </div>
       </BrowserRouter>
     );
   }
 }
 
-export default Main;
+const mapDispatchToProps = (dispatch) => ({
+  dispatch: dispatch,
+  getArticles: dispatch(getArticles()),
+  getBlogPosts: dispatch(getBlogPosts()),
+  getComments: dispatch(getComments()),
+  startup: () => dispatch(StartupActions.startup())
+});
+
+const mapStateToProps = (state) => ({
+  state: state,
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

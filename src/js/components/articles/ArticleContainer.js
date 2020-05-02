@@ -1,32 +1,29 @@
 import React from 'react';
 import Moment from 'react-moment';
-import './PortfolioContainer.scss';
+import './ArticleContainer.scss';
 
 Moment.globalFormat = 'MMM D, YYYY';
 
-class PortfolioContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class ArticleContainer extends React.Component {
   render() {
     return (
-      <a className="portfolio-piece" href={this.props.data.link} target="_blank">
+      <a title={this.props.data.title} key={`article-${this.props.index}`} className="article" href={this.props.data.link} target="_blank" rel="noopener noreferrer">
         <img 
           src={require(`../../../images/portfolio_images/${this.props.data.image}`)}
+          alt="Blog"
           style={{
             height: '250px',
             width: '100%',
           }}
         />
-        <div className="portfolio-piece-text">
-          <div className="portfolio-title">
+        <div className="article-text">
+          <div className="article-title" role="group">
             <h3>{this.props.data.title}</h3>
           </div>
-          <div className="portfolio-date-publication">
+          <div className="article-date-publication">
             <Moment>{this.props.data.date}</Moment> • {this.props.data.publication}
           </div>
-          <div className="portfolio-description">
+          <div className="article-description">
             <p>{this.props.data.description}</p>
           </div>
         </div>
@@ -35,4 +32,4 @@ class PortfolioContainer extends React.Component {
   }
 }
 
-export default PortfolioContainer;
+export default ArticleContainer;

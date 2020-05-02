@@ -1,14 +1,10 @@
 .footer {
   color: #98AFBA;
   background-color: #344A53;
-  max-width: 100%;
-  padding: 30px;
-  position: absolute;
-  bottom: 0;
-  height: 120px;
-  text-align: center !important;
-
-  .footer-contents {
-    display: inline-block;
+  padding: 20px;
+  
+  .footer-row {
+    position: relative;
+    text-align: center;
   }
 }

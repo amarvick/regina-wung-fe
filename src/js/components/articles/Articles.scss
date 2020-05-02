@@ -1,0 +1,19 @@
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#portfolio {
+  text-align: center;
+  padding: 10px;
+
+  .loader {
+    border: 8px solid #98AFBA;
+    border-top: 8px solid #344A53;
+    border-radius: 50%;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+  }
+}

@@ -10,8 +10,25 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, $opacity), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.portfolio-piece {
+.article {
   @include boxShadow(0.2);
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+
+  @-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+ 
+  @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+
   border: 1px solid white;
   border-radius: 5px;
   height: 500px;
@@ -27,24 +44,24 @@
     text-decoration: none;
   }
 
-  .portfolio-piece-text {
+  .article-text {
     color: #344A53;
     padding: 15px;
 
-    .portfolio-title {
+    .article-title {
       @include webkit(2);
       max-height: 72px;
       position: relative;
     }
 
-    .portfolio-date-publication {
+    .article-date-publication {
       @include webkit(4);
       max-height: 22px;
       font-size: 12px;
       font-weight: 900;
     }
 
-    .portfolio-description {
+    .article-description {
       @include webkit(4);
       p {
         margin: 0;
