@@ -25,12 +25,13 @@ class ContactModal extends React.Component {
     this.props.toggleContactRequestBox();
 
     const messageInfo = this.state;
-    fetch('http://localhost:9000/email' +
+    fetch('https://regina-wung-be.herokuapp.com/email' +
             `?name=${messageInfo.name}` +
             `&email=${messageInfo.email}` +
             `&subject=${messageInfo.subject}` +
             `&message=${messageInfo.message}`, {
-      method: 'POST'
+      method: 'POST',
+      mode: 'cors'
     })
       .then(_res => {
         this.props.toggleContactModal();

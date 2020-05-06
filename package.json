@@ -1,5 +1,6 @@
 {
   "name": "reginas-website",
+  "homepage": "http://www.reginathewriter.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,7 +25,8 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.2",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "yarn": "^1.22.4"
   },
   "scripts": {
     "start": "react-scripts start",

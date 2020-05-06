@@ -3,8 +3,8 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import './main.scss'
 import { connect } from 'react-redux';
 import { getArticles } from '../actions/articleActions';
-import { getBlogPosts } from '../actions/blogActions';
-import { getComments } from '../actions/commentActions';
+// import { getBlogPosts } from '../actions/blogActions';
+// import { getComments } from '../actions/commentActions';
 
 import MainHeader from './headerfooter/MainHeader';
 import NonMainHeader from './headerfooter/NonMainHeader';
@@ -16,8 +16,8 @@ import Blog from './blog/Blog';
 class Main extends Component {
   componentWillMount() {
     getArticles();
-    getBlogPosts();
-    getComments();
+    // getBlogPosts();
+    // getComments();
   }
 
   render() {
@@ -43,8 +43,8 @@ class Main extends Component {
 const mapDispatchToProps = (dispatch) => ({
   dispatch: dispatch,
   getArticles: dispatch(getArticles()),
-  getBlogPosts: dispatch(getBlogPosts()),
-  getComments: dispatch(getComments()),
+  // getBlogPosts: dispatch(getBlogPosts()),
+  // getComments: dispatch(getComments()),
   startup: () => dispatch(StartupActions.startup())
 });
 

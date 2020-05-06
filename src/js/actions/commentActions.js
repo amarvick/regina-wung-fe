@@ -5,7 +5,7 @@ export function getComments() {
     dispatch({
       type: CommentActionTypes.FETCHING_COMMENTS
     })
-    fetch('http://localhost:9000/fetchComments') 
+    fetch('https://regina-wung-be.herokuapp.com/fetchComments', {mode: 'cors'}) 
       .then(data => data.json())
       .then(res => {
         dispatch({

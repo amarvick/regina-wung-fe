@@ -11,10 +11,7 @@ class ArticleContainer extends React.Component {
         <img 
           src={require(`../../../images/portfolio_images/${this.props.data.image}`)}
           alt="Blog"
-          style={{
-            height: '250px',
-            width: '100%',
-          }}
+          className="article-image"
         />
         <div className="article-text">
           <div className="article-title" role="group">

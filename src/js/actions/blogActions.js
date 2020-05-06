@@ -5,7 +5,7 @@ export function getBlogPosts() {
     dispatch({
       type: BlogActionTypes.FETCHING_BLOG_POSTS
     })
-    fetch('http://localhost:9000/fetchBlogPosts') 
+    fetch('https://regina-wung-be.herokuapp.com/fetchBlogPosts', {mode: 'cors'}) 
       .then(data => data.json())
       .then(res => {
         dispatch({

@@ -5,7 +5,7 @@ export function getArticles() {
     dispatch({
       type: ArticleActionTypes.FETCHING_ARTICLES
     })
-    fetch('http://localhost:9000/fetchArticles') 
+    fetch('https://regina-wung-be.herokuapp.com/fetchArticles', {mode: 'cors'}) 
       .then(data => data.json())
       .then(res => {
         dispatch({
