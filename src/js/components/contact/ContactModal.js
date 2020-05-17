@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+import axios from 'axios';
 import Contact from './Contact';
 
 class ContactModal extends React.Component {
@@ -25,13 +26,11 @@ class ContactModal extends React.Component {
     this.props.toggleContactRequestBox();
 
     const messageInfo = this.state;
-    fetch('https://regina-wung-be.herokuapp.com/email' +
-            `?name=${messageInfo.name}` +
-            `&email=${messageInfo.email}` +
-            `&subject=${messageInfo.subject}` +
-            `&message=${messageInfo.message}`, {
-      method: 'POST',
-      mode: 'cors'
+    axios.post('https://regina-wung-be.herokuapp.com/email', {
+      name: messageInfo.name,
+      email: messageInfo.email,
+      subject: messageInfo.subject,
+      message: messageInfo.message,
     })
       .then(_res => {
         this.props.toggleContactModal();

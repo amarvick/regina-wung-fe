@@ -68,7 +68,7 @@ class Contact extends React.Component {
               invalid={this.state.missingName}
               required 
             />
-            <FormFeedback>I'd like to know who this is :)</FormFeedback>
+            <FormFeedback/>
           </FormGroup>
           <FormGroup>
             <Label for="email">Email *</Label>
@@ -80,7 +80,7 @@ class Contact extends React.Component {
               invalid={this.state.missingEmail}
               required 
             />
-            <FormFeedback>I'd like to know how to reach back out to you :)</FormFeedback>
+            <FormFeedback/>
           </FormGroup>
           <FormGroup>
             <Label for="subject">Subject *</Label>
@@ -92,7 +92,7 @@ class Contact extends React.Component {
               invalid={this.state.missingSubject}
               required 
             />
-            <FormFeedback>I'd like to have an idea as to what this is about :)</FormFeedback>
+            <FormFeedback/>
           </FormGroup>
           <FormGroup>
             <Label for="exampleText">Message *</Label>
@@ -104,7 +104,7 @@ class Contact extends React.Component {
               invalid={this.state.missingMessage}
               required 
             />
-            <FormFeedback>I'd like to know what you have to say :)</FormFeedback>
+            <FormFeedback/>
           </FormGroup>
           <Button 
             onClick={(e) => this.validateMessage(e)}

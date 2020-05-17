@@ -4,11 +4,12 @@ import './MainHeader.scss';
 function MainHeader() {   
   return (
     <div id="header">
-      <div id="parallax" />
-      <div id="header-name">
-        <span className="border">
-          Regina Wung
-        </span>
+      <div id="parallax">
+      </div>
+      <div id="parallax-name">
+        <p>
+          REGINA WUNG
+        </p>
       </div>
     </div>
   );

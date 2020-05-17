@@ -36,7 +36,7 @@ class About extends React.Component {
             <Row>
               <Button 
                 onClick={this.props.toggleModal} 
-                label="Contact Me"
+                label="Contact"
               />
             </Row>
           </Col>

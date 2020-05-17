@@ -3,8 +3,11 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import './main.scss'
 import { connect } from 'react-redux';
 import { getArticles } from '../actions/articleActions';
-// import { getBlogPosts } from '../actions/blogActions';
-// import { getComments } from '../actions/commentActions';
+
+import jwt_decode from "jwt-decode";
+import setAuthToken from "../../auth/setAuthToken";
+import { setCurrentUser, logoutUser } from "../actions/authActions";
+import store from '../store.js';
 
 import MainHeader from './headerfooter/MainHeader';
 import NonMainHeader from './headerfooter/NonMainHeader';
@@ -12,15 +15,29 @@ import Footer from './headerfooter/Footer';
 
 import Home from './home/Home';
 import Blog from './blog/Blog';
+import AdminLogin from './admin/AdminLogin';
+
+if (localStorage.jwtToken) {
+  // store.dispatch(logoutUser());
+  const token = localStorage.jwtToken;
+  setAuthToken(token);
+  const decoded = jwt_decode(token);
+  store.dispatch(setCurrentUser(decoded));
+  const currentTime = Date.now() / 1000;
+  if (decoded.exp < currentTime) {
+    store.dispatch(logoutUser());
+    // Redirect to login
+    // window.location.href = "./login";
+  }
+}
 
 class Main extends Component {
   componentWillMount() {
     getArticles();
-    // getBlogPosts();
-    // getComments();
   }
 
   render() {
+    console.log(this.props.state);
     const header = true ? <MainHeader /> : <NonMainHeader />
     return (
       <BrowserRouter>
@@ -30,6 +47,7 @@ class Main extends Component {
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route path='/blog/:id?' component={Blog}/>
+              <Route path='/login' component={AdminLogin}/>
               <Redirect to="/"/>
             </Switch>
           </div>
@@ -43,8 +61,6 @@ class Main extends Component {
 const mapDispatchToProps = (dispatch) => ({
   dispatch: dispatch,
   getArticles: dispatch(getArticles()),
-  // getBlogPosts: dispatch(getBlogPosts()),
-  // getComments: dispatch(getComments()),
   startup: () => dispatch(StartupActions.startup())
 });
 

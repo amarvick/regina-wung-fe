@@ -1,16 +1,16 @@
 import CommentActionTypes from '../actiontypes/commentActionTypes'
+import axios from 'axios';
 
 export function getComments() {
   return function action(dispatch) {
     dispatch({
       type: CommentActionTypes.FETCHING_COMMENTS
     })
-    fetch('https://regina-wung-be.herokuapp.com/fetchComments', {mode: 'cors'}) 
-      .then(data => data.json())
+    axios.get('https://regina-wung-be.herokuapp.com/fetchComments')
       .then(res => {
         dispatch({
           type: CommentActionTypes.FETCH_COMMENTS_SUCCESS,
-          payload: res
+          payload: res.data
         })
       }) 
 
