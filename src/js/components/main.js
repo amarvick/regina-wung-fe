@@ -18,17 +18,16 @@ import Blog from './blog/Blog';
 import AdminLogin from './admin/AdminLogin';
 
 if (localStorage.jwtToken) {
-  // store.dispatch(logoutUser());
-  const token = localStorage.jwtToken;
-  setAuthToken(token);
-  const decoded = jwt_decode(token);
-  store.dispatch(setCurrentUser(decoded));
-  const currentTime = Date.now() / 1000;
-  if (decoded.exp < currentTime) {
-    store.dispatch(logoutUser());
-    // Redirect to login
-    // window.location.href = "./login";
-  }
+  store.dispatch(logoutUser());
+
+  // const token = localStorage.jwtToken;
+  // setAuthToken(token);
+  // const decoded = jwt_decode(token);
+  // store.dispatch(setCurrentUser(decoded));
+  // const currentTime = Date.now() / 1000;
+  // if (decoded.exp < currentTime) {
+  //   store.dispatch(logoutUser());
+  // }
 }
 
 class Main extends Component {

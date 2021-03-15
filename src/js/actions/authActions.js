@@ -12,6 +12,7 @@ export function loginUser(password) {
       .then(res => {
         // Save to localStorage
         // Set token to localStorage
+        console.log(res);
         const { token } = res.data
         localStorage.setItem("jwtToken", token)
 
