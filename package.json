@@ -1,6 +1,6 @@
 {
   "name": "reginas-website",
-  "homepage": "http://reginathewriter.com",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

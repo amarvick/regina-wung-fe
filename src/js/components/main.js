@@ -36,7 +36,6 @@ class Main extends Component {
   }
 
   render() {
-    console.log(this.props.state);
     const header = true ? <MainHeader /> : <NonMainHeader />
     return (
       <HashRouter>
