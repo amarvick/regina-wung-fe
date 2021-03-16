@@ -71,7 +71,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 const mapStateToProps = (state) => ({
-  articles: state.article.articles,
+  articles: state.article.articles.articles,
   articlesFetching: state.article.articlesFetching,
   articlesLoadingError: state.article.articlesLoadingError
 })
