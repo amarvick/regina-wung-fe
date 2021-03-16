@@ -1,5 +1,5 @@
 import React, { Component, StartupActions } from 'react'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
 import './main.scss'
 import { connect } from 'react-redux';
 import { getArticles } from '../actions/articleActions';
@@ -39,7 +39,7 @@ class Main extends Component {
     console.log(this.props.state);
     const header = true ? <MainHeader /> : <NonMainHeader />
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className="App">
           { header }
           <div className="App-body">
@@ -52,7 +52,7 @@ class Main extends Component {
           </div>
           <Footer />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
