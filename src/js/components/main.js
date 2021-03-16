@@ -11,7 +11,7 @@ import store from '../store.js';
 
 import MainHeader from './headerfooter/MainHeader';
 import NonMainHeader from './headerfooter/NonMainHeader';
-import Footer from './headerfooter/Footer';
+// import Footer from './headerfooter/Footer';
 
 import Home from './home/Home';
 import Blog from './blog/Blog';
@@ -49,7 +49,7 @@ class Main extends Component {
               <Redirect to="/"/>
             </Switch>
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </BrowserRouter>
     );
