@@ -1,11 +1,11 @@
 import React, { Component, StartupActions } from 'react'
-import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import './main.scss'
 import { connect } from 'react-redux';
 import { getArticles } from '../actions/articleActions';
 
-import jwt_decode from "jwt-decode";
-import setAuthToken from "../../auth/setAuthToken";
+// import jwt_decode from "jwt-decode";
+// import setAuthToken from "../../auth/setAuthToken";
 import { setCurrentUser, logoutUser } from "../actions/authActions";
 import store from '../store.js';
 
@@ -38,7 +38,7 @@ class Main extends Component {
   render() {
     const header = true ? <MainHeader /> : <NonMainHeader />
     return (
-      <HashRouter>
+      <BrowserRouter>
         <div className="App">
           { header }
           <div className="App-body">
@@ -51,7 +51,7 @@ class Main extends Component {
           </div>
           <Footer />
         </div>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }
